@@ -29,5 +29,11 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <fileEditorProvider implementation="com.jmpeax.ssltoolbox.ui.PEMFileEditorProvider" />
+        <fileType
+                name="PEM file"
+                implementationClass="com.jmpeax.ssltoolbox.fileTypes.PEMFileType"
+                fieldName="INSTANCE"
+                language=""
+                extensions="pem;cer;der;crt;ca-bundle;p7b;p7c"/>
     </extensions>
 </idea-plugin>
