@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Implement Hugo site with GitHub Actions deployment&#10;&#10;Added Hugo configuration files and GitHub Actions workflow for site deployment to GitHub Pages. Reorganized files including default archetypes and go modules. Updated .gitignore to exclude generated files.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/fileTypes/PEMFileType.java" afterDir="false" />
+    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Add PEM file type support&#10;&#10;Introduced PEMFileType class to handle PEM files and updated the plugin.xml to recognize various PEM-related file extensions. This addition improves file management and editing capabilities within the project.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/fileTypes/PEMFileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/fileTypes/PEMFileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +130,7 @@
       <workItem from="1724556319474" duration="6829000" />
       <workItem from="1724638755660" duration="1751000" />
       <workItem from="1724641284113" duration="3845000" />
-      <workItem from="1724646280665" duration="2219000" />
+      <workItem from="1724646280665" duration="3047000" />
     </task>
     <task id="LOCAL-00001" summary="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations.">
       <option name="closed" value="true" />
@@ -172,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724647934471</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add PEM file type support&#10;&#10;Introduced PEMFileType class to handle PEM files and updated the plugin.xml to recognize various PEM-related file extensions. This addition improves file management and editing capabilities within the project.">
+      <option name="closed" value="true" />
+      <created>1724648562167</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724648562167</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,7 +205,8 @@
     <MESSAGE value="Add initial project templates and documentation&#10;&#10;Introduced essential project documentation and configuration files, including ISSUE_TEMPLATE, CODE_OF_CONDUCT, CONTRIBUTING guide, LICENSE, and README. This update also includes a PULL_REQUEST_TEMPLATE to standardize contributions." />
     <MESSAGE value="Add Hugo site deployment workflow&#10;&#10;Introduced a GitHub Actions workflow for building and deploying a Hugo site to GitHub Pages. Also added configuration files including the default archetype and Hugo settings for the site. Adjusted IntelliJ IDEA workspace settings for the newly integrated changes." />
     <MESSAGE value="Implement Hugo site with GitHub Actions deployment&#10;&#10;Added Hugo configuration files and GitHub Actions workflow for site deployment to GitHub Pages. Reorganized files including default archetypes and go modules. Updated .gitignore to exclude generated files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement Hugo site with GitHub Actions deployment&#10;&#10;Added Hugo configuration files and GitHub Actions workflow for site deployment to GitHub Pages. Reorganized files including default archetypes and go modules. Updated .gitignore to exclude generated files." />
+    <MESSAGE value="Add PEM file type support&#10;&#10;Introduced PEMFileType class to handle PEM files and updated the plugin.xml to recognize various PEM-related file extensions. This addition improves file management and editing capabilities within the project." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add PEM file type support&#10;&#10;Introduced PEMFileType class to handle PEM files and updated the plugin.xml to recognize various PEM-related file extensions. This addition improves file management and editing capabilities within the project." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -10,9 +10,11 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 
 public class PEMFileType implements FileType {
+
+    public static final PEMFileType INSTANCE = new PEMFileType();
     @Override
     public @NonNls @NotNull String getName() {
-        return "Pem file type";
+        return "PEM file";
     }
 
     @Override
