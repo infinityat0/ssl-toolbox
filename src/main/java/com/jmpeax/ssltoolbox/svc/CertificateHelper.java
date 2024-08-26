@@ -1,4 +1,4 @@
-package com.jmpeax.keytoolj.svc;
+package com.jmpeax.ssltoolbox.svc;
 
 import com.intellij.openapi.diagnostic.Logger;
 import org.jetbrains.annotations.NotNull;

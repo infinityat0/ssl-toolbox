@@ -1,11 +1,11 @@
-package com.jmpeax.keytoolj.ui;
+package com.jmpeax.ssltoolbox.ui;
 
 import com.intellij.diff.util.FileEditorBase;
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.components.JBTabbedPane;
-import com.jmpeax.keytoolj.svc.CertificateHelper;
-import com.jmpeax.keytoolj.ui.pem.PemView;
+import com.jmpeax.ssltoolbox.svc.CertificateHelper;
+import com.jmpeax.ssltoolbox.ui.pem.PemView;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

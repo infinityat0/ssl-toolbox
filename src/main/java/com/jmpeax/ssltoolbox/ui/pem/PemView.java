@@ -1,8 +1,8 @@
-package com.jmpeax.keytoolj.ui.pem;
+package com.jmpeax.ssltoolbox.ui.pem;
 
 import com.intellij.ui.components.JBPanel;
 import com.intellij.util.ui.JBUI;
-import com.jmpeax.keytoolj.ui.Messages;
+import com.jmpeax.ssltoolbox.ui.Messages;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
