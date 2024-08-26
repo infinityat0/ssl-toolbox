@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Add initial project templates and documentation&#10;&#10;Introduced essential project documentation and configuration files, including ISSUE_TEMPLATE, CODE_OF_CONDUCT, CONTRIBUTING guide, LICENSE, and README. This update also includes a PULL_REQUEST_TEMPLATE to standardize contributions.">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/hugo.yaml" afterDir="false" />
+    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Add Hugo site deployment workflow&#10;&#10;Introduced a GitHub Actions workflow for building and deploying a Hugo site to GitHub Pages. Also added configuration files including the default archetype and Hugo settings for the site. Adjusted IntelliJ IDEA workspace settings for the newly integrated changes.">
+      <change afterPath="$PROJECT_DIR$/docs/content/en/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/content/en/docs/getting-started/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/content/en/menu/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/CNAME" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/archetypes/default.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/hugo.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +88,7 @@
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/cortiz/repos/jmpeax/jetbrains-plugins&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/cortiz/repos/jmpeax/Keytool/docs/content/en/docs&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -94,11 +100,13 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/content/en/docs" />
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs/content/en/docs/license" />
+      <recent name="$PROJECT_DIR$/docs/content/en/docs/getting-started" />
       <recent name="$PROJECT_DIR$/docs/content/en" />
+      <recent name="$PROJECT_DIR$/docs/content/en/docs/license" />
       <recent name="$PROJECT_DIR$/src/main/java/com/jmpeax/keytoolj/ui" />
     </key>
   </component>
@@ -126,7 +134,8 @@
       <workItem from="1724554525401" duration="1584000" />
       <workItem from="1724556319474" duration="6829000" />
       <workItem from="1724638755660" duration="1751000" />
-      <workItem from="1724641284113" duration="2445000" />
+      <workItem from="1724641284113" duration="3845000" />
+      <workItem from="1724646280665" duration="1629000" />
     </task>
     <task id="LOCAL-00001" summary="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations.">
       <option name="closed" value="true" />
@@ -152,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724644162915</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Hugo site deployment workflow&#10;&#10;Introduced a GitHub Actions workflow for building and deploying a Hugo site to GitHub Pages. Also added configuration files including the default archetype and Hugo settings for the site. Adjusted IntelliJ IDEA workspace settings for the newly integrated changes.">
+      <option name="closed" value="true" />
+      <created>1724644809690</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724644809690</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +192,8 @@
     <MESSAGE value="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations." />
     <MESSAGE value="Add initial project templates and documentation&#10;&#10;Introduced essential project documentation and configuration files. This includes ISSUE_TEMPLATE for bugs and features, CODE_OF_CONDUCT, CONTRIBUTING guide, LICENSE, and README. Additionally, added PULL_REQUEST_TEMPLATE to standardize contributions." />
     <MESSAGE value="Add initial project templates and documentation&#10;&#10;Introduced essential project documentation and configuration files, including ISSUE_TEMPLATE, CODE_OF_CONDUCT, CONTRIBUTING guide, LICENSE, and README. This update also includes a PULL_REQUEST_TEMPLATE to standardize contributions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add initial project templates and documentation&#10;&#10;Introduced essential project documentation and configuration files, including ISSUE_TEMPLATE, CODE_OF_CONDUCT, CONTRIBUTING guide, LICENSE, and README. This update also includes a PULL_REQUEST_TEMPLATE to standardize contributions." />
+    <MESSAGE value="Add Hugo site deployment workflow&#10;&#10;Introduced a GitHub Actions workflow for building and deploying a Hugo site to GitHub Pages. Also added configuration files including the default archetype and Hugo settings for the site. Adjusted IntelliJ IDEA workspace settings for the newly integrated changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Hugo site deployment workflow&#10;&#10;Introduced a GitHub Actions workflow for building and deploying a Hugo site to GitHub Pages. Also added configuration files including the default archetype and Hugo settings for the site. Adjusted IntelliJ IDEA workspace settings for the newly integrated changes." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
