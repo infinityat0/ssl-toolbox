@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations.">
-      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Add initial project templates and documentation&#10;&#10;Introduced essential project documentation and configuration files. This includes ISSUE_TEMPLATE for bugs and features, CODE_OF_CONDUCT, CONTRIBUTING guide, LICENSE, and README. Additionally, added PULL_REQUEST_TEMPLATE to standardize contributions.">
+      <change beforePath="$PROJECT_DIR$/CODE_OF_CONDUCT.md" beforeDir="false" afterPath="$PROJECT_DIR$/CODE_OF_CONDUCT.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +125,7 @@
       <workItem from="1724554525401" duration="1584000" />
       <workItem from="1724556319474" duration="6829000" />
       <workItem from="1724638755660" duration="1751000" />
-      <workItem from="1724641284113" duration="1692000" />
+      <workItem from="1724641284113" duration="1801000" />
     </task>
     <task id="LOCAL-00001" summary="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations.">
       <option name="closed" value="true" />
@@ -136,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724643524082</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add initial project templates and documentation&#10;&#10;Introduced essential project documentation and configuration files. This includes ISSUE_TEMPLATE for bugs and features, CODE_OF_CONDUCT, CONTRIBUTING guide, LICENSE, and README. Additionally, added PULL_REQUEST_TEMPLATE to standardize contributions.">
+      <option name="closed" value="true" />
+      <created>1724644083673</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1724644083673</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +153,8 @@
     <MESSAGE value="View Basic Certificates and Chain" />
     <MESSAGE value="Remove unused KeyToolWindow and KeystoreToolWindow classes&#10;&#10;These classes were no longer in use and have been deleted. Additionally, refactored MyCustomFileEditor to PEMFileEditor for better clarity and functionality. Enhanced CertificateHelper to support multiple certificates and added PemView for detailed certificate display." />
     <MESSAGE value="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations." />
+    <MESSAGE value="Add initial project templates and documentation&#10;&#10;Introduced essential project documentation and configuration files. This includes ISSUE_TEMPLATE for bugs and features, CODE_OF_CONDUCT, CONTRIBUTING guide, LICENSE, and README. Additionally, added PULL_REQUEST_TEMPLATE to standardize contributions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add initial project templates and documentation&#10;&#10;Introduced essential project documentation and configuration files. This includes ISSUE_TEMPLATE for bugs and features, CODE_OF_CONDUCT, CONTRIBUTING guide, LICENSE, and README. Additionally, added PULL_REQUEST_TEMPLATE to standardize contributions." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
