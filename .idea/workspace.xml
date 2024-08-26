@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Remove unused KeyToolWindow and KeystoreToolWindow classes&#10;&#10;These classes were no longer in use and have been deleted. Additionally, refactored MyCustomFileEditor to PEMFileEditor for better clarity and functionality. Enhanced CertificateHelper to support multiple certificates and added PemView for detailed certificate display.">
+    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations.">
+      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jmpeax/keytoolj/svc/CertificateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/svc/CertificateHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jmpeax/keytoolj/ui/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/ui/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jmpeax/keytoolj/ui/PEMFileEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/ui/PEMFileEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jmpeax/keytoolj/ui/PEMFileEditorProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/ui/PEMFileEditorProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jmpeax/keytoolj/ui/pem/PemView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/ui/pem/PemView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +51,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -96,11 +92,6 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="QodanaReportsService">
-    <option name="descriptions">
-      <ReportDescription localRun="true" path="/private/var/folders/66/19gqsclj5f1_8llzfhjmsd5h0000gn/T/qodana_output/qodana.sarif.json" reportGuid="fadf9ab7-9d1d-435b-b270-a0182c70afba" reportId="keytoolj/qodana/2024-08-24" />
-    </option>
-  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
@@ -135,8 +126,17 @@
       <workItem from="1724554525401" duration="1584000" />
       <workItem from="1724556319474" duration="6829000" />
       <workItem from="1724638755660" duration="1751000" />
-      <workItem from="1724641284113" duration="1136000" />
+      <workItem from="1724641284113" duration="1692000" />
     </task>
+    <task id="LOCAL-00001" summary="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations.">
+      <option name="closed" value="true" />
+      <created>1724643524082</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1724643524082</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,7 +145,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="View Basic Certificates and Chain" />
     <MESSAGE value="Remove unused KeyToolWindow and KeystoreToolWindow classes&#10;&#10;These classes were no longer in use and have been deleted. Additionally, refactored MyCustomFileEditor to PEMFileEditor for better clarity and functionality. Enhanced CertificateHelper to support multiple certificates and added PemView for detailed certificate display." />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove unused KeyToolWindow and KeystoreToolWindow classes&#10;&#10;These classes were no longer in use and have been deleted. Additionally, refactored MyCustomFileEditor to PEMFileEditor for better clarity and functionality. Enhanced CertificateHelper to support multiple certificates and added PemView for detailed certificate display." />
+    <MESSAGE value="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
