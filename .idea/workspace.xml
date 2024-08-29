@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Add PEM file type support&#10;&#10;Introduced PEMFileType class to handle PEM files, enhancing file management and editing capabilities. Updated the plugin.xml for PEM-related file extensions and modified the plugin icon for better representation. Changes also include minor workspace adjustments and corrected geospatial references.">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/hugo.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/hugo.yaml" afterDir="false" />
+    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Adjusted GitHub Actions workflow to trigger changes in the 'docs' directory.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +32,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="keytoolj" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -74,6 +72,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Keytool [setupDependencies].executor": "Run",
+    "Gradle.Keytool [signPlugin].executor": "Run",
     "Gradle.Run Plugin.executor": "Run",
     "Gradle.keytoolj [setupDependencies].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -97,11 +96,66 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/docs/content/en/docs/getting-started" />
       <recent name="$PROJECT_DIR$/docs/content/en" />
       <recent name="$PROJECT_DIR$/docs/content/en/docs/license" />
       <recent name="$PROJECT_DIR$/src/main/java/com/jmpeax/keytoolj/ui" />
     </key>
+  </component>
+  <component name="RunManager" selected="Gradle.Keytool [signPlugin]">
+    <configuration name="Keytool [signPlugin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="env">
+          <map>
+            <entry key="CERTIFICATE_CHAIN" value="LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUpRd0lCQURBTkJna3Foa2lHOXcwQkFRRUZB QVNDQ1Mwd2dna3BBZ0VBQW9JQ0FRREszQ1dBQnZkbmRTNkQKSDlaMTc3RGlQM3dZa1U4cEhtb0M5 RG9TanZFTVlqdUovSU9HWXZ5US84UUp1UWkzT0JpbEVNSjFBaHJPVEsvRApQY3ZkRUF6dTFHOG5H QkM0V29JZndEbkxHcDF3eVc2VmdMNDduMHVZMFZDMUNiU2hqUmJTNWtOL09Cd2FRM3VLCm9DR1Ex bXNMdWRiSklySVVjR3RzcnZSZy9ZRU1sS0JWb1g4WENCaCtvcTBTZFZQNWFweXVhR2hsZEt4UWpp OVkKamhqV1FPQXJGWEdvY1crZzJVdUwxUmlUamNreFRvRG8vaTBlenhiUFFMM1lPajJxT3BMV2dS WE9PWW9obXo2RQpsaWo0d3pJcHpnZnZpVGZOa0txWHhCb1J1QUQ3Unp2M2I5NzBWWVFTeU0xNFlS K0FTZGYrcUZFdy9NeWZlei9MCmVpckVZNk9Ud0Q2M1RmNC8yZG05aDc2TStrMWpya1dXUThsSlgv Um8yU3FwVjJ2eVNaM3Z3Z2NRc2liK3BuNDgKTk1mcG9zVzZyS3V0WDlyaWxZZ2JVYm5nTTFCcWoz N3NtRzF1ZWsvZk9hSWZSY2FsZFBsSm94RzhvZ1pUcGZVTwpWSGNwSThLdnN2WmRMMkRpejlBRE9B REVWK2V4S1g0THhYWC9GQUxWQnp3eHFPTEZoazVCUWVQUGNzZDBHbFppClBuM1lzd20wYVM3K0Zz N0dxcVlYeWJpd3VmOUZ1NitmNTlCMGNUUGIvaDFOTmhNdnRSSjVGMUFSQXl5WXhRZ24KVnBYUlZY WjF3OHR1VHhvb3RBZy9hbW1mT0ZRMzdaR0haWVk3K2ROQTFPVDVJaTdDVTZkczVPWHB5RC9ValpK TApLKzEvRHI0dWV6d0xsZXNjWEN6b0dST3NZbFY0MHdJREFRQUJBb0lDQUZyQmN1VjhPR05Jd2E1 WUtCSkxVYzltCnA1WTJMRHd4Snl4N0p4LzJZMUV2QVlRU1BLVjYwNVByV1VFZ1R3M3BRdDFXU2lr ZTcrOHJ6OWFCWnh0WGV2RysKaUp2czRFNFo3KzFVaW9hYk9hU2orWjFaSThKNDJkRmNrOGJxdUsw dCtmQVFwRkhlUUhSZmpIM1FkalBlT2JYZApSb0pseTFYcGxhWGgvK01FaHgraHZybVFydE1YQkI1 am1ScVE4eWk2MGE0VmQ5OHIrNHR1a1RBRklvZDRMdElYCm5lbkdGakxZQkR4aThjUFJ3eGtVRGdn dTd2REJwV3JEaEN1Z29zWHR2cFBJM0lDT3JZV3JkcVRLcVRuaDJpZHAKelpNVXlLcG05bXMvaUlv MHovdWJPdkRRVSticisxS01FNkN2a3ZCS0dTQU5IWVhWRTVhbUJUeDdRM2JwUE55cApMMzVNMXo4 L01SVG1kaFRIcGRRT1IySmZ5K2hhU3lnQlZzaVlzc0FkOUxxc0hYZDIxeW1sSEVxNVhWKzJ4QnJY Ckc3bkVRbHgweUkrcm5NVjRyN2RLbHhqcE5SM2NnNVJvT0xieFhoZTNwQ3lpRjFFQjg4VFVkeGto ekwvdml1b1IKY0R4RGhDS3NOUGdNbytyNlFPT1piRWlGSTQvZEgrRVhaUzZDT0ZrN0VPeDhuV1hY NktqYjNCRkErZ3I4d1hIRgpiV1J5bkVhVVBuMERxb293c1pPdEFUdUV5dXIyS2NRMU4ya1V6R1BL ME1LVGtnRVVodmJDdmNIRXdzQThqRGZVCitMNnQvMG0wKzN2NmJGU200WmlqT1BiL3o0UkJIcFFi UlM0OG94Ukg0amJKRTJlYkI5M2cvd0RKNFlTeTZTQjgKTkZreDZjQjhiMkVKUEhrTTBlNEJBb0lC QVFEc3R1R1gzQnRoN1JjSDdmWFdicEJxQlMzWmp2RVYvd3lqdTU5eApSNXhTTFNLZWxzcHlUaHdx NDM2QjJUR1loNlgyTE9IRmdvVTczeUJjTmdQUWhXT25JR2NDOXlwaklkaG1FSXRDCmVYL1N5dGtM enEyTGNPY283NkZTejlXdlMrVndCWStWcDVGZFdkeGI2clMyNlZzRWs0SkxCVjFjNGdXVWdaT2sK MEVwS3NudHVJdTlZbjJhL3FaQlZjTmcvQWovOWFSenBNYlB4VjFYbDM2SFVwNVJJa3pwdS85T1Rj WE5XVTNacQpUNkRaOVk0ZkxPVlNVUlRtVFliaytYNkFhTnRhM2c0YlJnSlJma2YrSTlqT01yb0Zz KzVMbkdaZ2p2ZEpxR3NmCkhEa3VGTUQrL1VDT2lyR0tua1hBblArMUtGUTR5TUVSRlBVdGZIYjF0 ZTlQNGVzekFvSUJBUURiWXlzSHZWQTEKU09Mc1o4bUZrVlJRUEZuU3p1b1UxNE9pZXVWeEhUUTVE cWdjVUFyVzMrOXdCd0tGaDNpbVpNT0U2aFBDRGNJNAprOGJpYUVLOC9tL05XZk4wZ3BGVWtMZHht Q2EvMmlvZnF2SGw4c1k1UWVUV2R2UHkzU3BHbmhuOStvaEd6dnpKCk4rRGJKTHVkaVg4T1d3eGRX TVRwNlV1VDdEcWY2dGlwaUpGa0w4YVBoSFQ0MTVma0VBcGg1amdVbTRpL2hoVUcKUE85R0Q0OVNX R3hoWldLT00rTWs5dzRScGpyK2JWdXBzSGF6Z1RmSnAyRGNQcXh2blltSDVtRU5mUmhXZmZVcwpY Q0wxTFB5RkxaUit1andONllUOGY2OFc3TmZCOWZXSEtwdFFudExlb0x1T1pxRWJZczkvdmc1MTlS aFAzVk9mCmJaNGR1dVgrS3p2aEFvSUJBUUNzN1lsdXpGQ0F3Sml6cFVhVUtWOTg1RjJ6Y3ZaeTBF bG1qOW1TQXZPVElRQUsKaFRST1B2dmE1U2oxS1R0UEo4RzVUdDU4MExZT29CbGU0K0x6Z1k3a2VB cHBJekduREFHdnhtUkY0c2Jic203UApibVJmMnRJMG1LTHRBWUlrdHJoZGx1Sm5QT3c0R3o2ZE02 QmpnNlNIZWsrVUNNNUUzYVdmOE8xd1dPMzlGZGlRCkJCdUFUYXJkVjcxbWZiS3NqVE04S0g4RGFO a0E5WUYrRmxwK0pSSngxb1M0dEZIWGcranpack82UklQSTF0ZkYKdEtHdStpYmZmRUdRb3lla0hY WXFNdEJ4WWpxdFdDaTE0M0F1YXVaMDVoYXV6QW9LZmtidlc0Y3VTZ3NIdkFlbQpBRk1hRHY1V3V2 dFFGQ0hHTVRrZDVxTU1uSmZrYStubjVNcDRQQjM3QW9JQkFIYUUrNEVoNEF2NVJVWnJ4MjNXCkZs T0dWd3hRNWhxK1Z3blhGTTduOVFlQ0NJWExKQi96T0hvdi8wZTk2UXNUVXFFaWgrd0UzTkVOM0pz QnNsUkIKcklxbXRxUlJ5VXVESnVkQ1NHVEs2b2pUSS8yVEMwMXhjTHYvNVVobC9PbkxqY1VzcktS OFBBcEVtc0FvOXdaagplblY1OEpNWldyLzNYZklhNDR6ekpYdHBJUXFiMk13OXhhZU5hU3czRWpU VFY2YWlZOXo4QmEycUM2V3cwRCt2CkwxWHFuTFN3Q1YwMTdxN1FPL3lwZmFTTmhZTHlJdjVZNHpY NDBkVTJxVTcyd2FXMDJBb1ozL0xJRDhhZU9BbUcKbHp0alJ3QkpFS1FNSXIzaTA2aWdSTFZ4Nmho Q3hTNnFiTWpBWHZiWmlibThKam5KWUFuOVNxak5ZbWN6U2Y3bQp3bUVDZ2dFQkFOWm9HVmUvSHhC VW9tZWRlekVZaGdUei9qNlNBbWtpc0p4dU9ndVRvOVNkOGxQRHRJYWhVZXI3Cmg0Y1JXL0lzUkhX WTJLc284UjQyZEZiVmhPZTFTejAyNFFhdUNmNHBBemZuYmdVQkkweDVFdmM0THNBRk01S3oKZE5U bTRGUG5LdHRnb0dtTWtUb1ZUYXRhMm0yMUdkMW81N2RPcXB6a1N2QTdUMDFpb2NPVzNrL1ZKbURU d0RrMwpCWjRsallXeEYvMkc0NWd0YnlSaFJ3V0V0V05GUzVHSm5kVmlBV0ljMEQrOGYxNWcrQmxF YnIzTUhFMDFRYkJnCnlmaFRBYUdOaEtZVEhYQ0ZSNUpKTUdCT2RsQUkwUnpCZ21TNDNrWWE1V1By SGNYMFhwT2RaVXF3VkJvSkY2ZDMKN2J1ajRyQ3JyNVpKQVdtRVgrOE1qY2lKell3QlV6ST0KLS0t LS1FTkQgUFJJVkFURSBLRVktLS0tLQo= " />
+            <entry key="PRIVATE_KEY" value="LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUYvVENDQStXZ0F3SUJBZ0lVRFNoWEhsZGw0 Z1VqR3NvVGN2RlpZOUk1Q2Rnd0RRWUpLb1pJaHZjTkFRRUwKQlFBd2dZMHhDekFKQmdOVkJBWVRB a05TTVJBd0RnWURWUVFJREFkRFlYSjBZV2R2TVJFd0R3WURWUVFIREFoTQpZU0JWYm1sdmJqRVBN QTBHQTFVRUNnd0dTazFRUlVGWU1SUXdFZ1lEVlFRTERBdEVaWFpsYkc5d2JXVnVkREVRCk1BNEdB MVVFQXd3SGEyVjVkRzl2YkRFZ01CNEdDU3FHU0liM0RRRUpBUllSWTI5eWRHbDZRR3B0Y0dWaGVD NWoKYjIwd0hoY05NalF3T0RJNU1ERTBORFF3V2hjTk1qVXdPREk1TURFME5EUXdXakNCalRFTE1B a0dBMVVFQmhNQwpRMUl4RURBT0JnTlZCQWdNQjBOaGNuUmhaMjh4RVRBUEJnTlZCQWNNQ0V4aElG VnVhVzl1TVE4d0RRWURWUVFLCkRBWktUVkJGUVZneEZEQVNCZ05WQkFzTUMwUmxkbVZzYjNCdFpX NTBNUkF3RGdZRFZRUUREQWRyWlhsMGIyOXMKTVNBd0hnWUpLb1pJaHZjTkFRa0JGaEZqYjNKMGFY cEFhbTF3WldGNExtTnZiVENDQWlJd0RRWUpLb1pJaHZjTgpBUUVCQlFBRGdnSVBBRENDQWdvQ2dn SUJBTXJjSllBRzkyZDFMb01mMW5YdnNPSS9mQmlSVHlrZWFnTDBPaEtPCjhReGlPNG44ZzRaaS9K RC94QW01Q0xjNEdLVVF3blVDR3M1TXI4TTl5OTBRRE83VWJ5Y1lFTGhhZ2gvQU9jc2EKblhESmJw V0F2anVmUzVqUlVMVUp0S0dORnRMbVEzODRIQnBEZTRxZ0laRFdhd3U1MXNraXNoUndhMnl1OUdE OQpnUXlVb0ZXaGZ4Y0lHSDZpclJKMVUvbHFuSzVvYUdWMHJGQ09MMWlPR05aQTRDc1ZjYWh4YjZE WlM0dlZHSk9OCnlURk9nT2orTFI3UEZzOUF2ZGc2UGFvNmt0YUJGYzQ1aWlHYlBvU1dLUGpETWlu T0IrK0pOODJRcXBmRUdoRzQKQVB0SE8vZHYzdlJWaEJMSXpYaGhINEJKMS82b1VURDh6Sjk3UDh0 NktzUmpvNVBBUHJkTi9qL1oyYjJIdm96NgpUV091UlpaRHlVbGY5R2paS3FsWGEvSkpuZS9DQnhD eUp2Nm1mancweCttaXhicXNxNjFmMnVLVmlCdFJ1ZUF6ClVHcVBmdXlZYlc1NlQ5ODVvaDlGeHFW MCtVbWpFYnlpQmxPbDlRNVVkeWtqd3EreTlsMHZZT0xQMEFNNEFNUlgKNTdFcGZndkZkZjhVQXRV SFBER280c1dHVGtGQjQ4OXl4M1FhVm1JK2ZkaXpDYlJwTHY0V3pzYXFwaGZKdUxDNQovMFc3cjUv bjBIUnhNOXYrSFUwMkV5KzFFbmtYVUJFRExKakZDQ2RXbGRGVmRuWER5MjVQR2lpMENEOXFhWjg0 ClZEZnRrWWRsaGp2NTAwRFU1UGtpTHNKVHAyems1ZW5JUDlTTmtrc3I3WDhPdmk1N1BBdVY2eHhj TE9nWkU2eGkKVlhqVEFnTUJBQUdqVXpCUk1CMEdBMVVkRGdRV0JCU0p4VmFkMGlOSUU5WXVQTFhH YkRocm5pK29LVEFmQmdOVgpIU01FR0RBV2dCU0p4VmFkMGlOSUU5WXVQTFhHYkRocm5pK29LVEFQ QmdOVkhSTUJBZjhFQlRBREFRSC9NQTBHCkNTcUdTSWIzRFFFQkN3VUFBNElDQVFES1lCVnF1aTUw Vi9CUWJhbUEyMS84NUdYOTRTMmJwVHJ4RytrVWtBN2EKTjF0cG1BWVRhdzBSYndQQ2J5c1VKbnZs allGZkNoRVdNVmZrSkpmMzJsV1JoS3VtNUNkd0NBUDB1aGhMZ2ZrZApPcnNvQVplZnpWdXVJM0E1 T0twalRtazR1bXdqU0t5Nlh4Y3gxY1JKdkhWUWYrWHlHVmcvb05vNXNTcDlOeVNxCkdkY2tsaXBv dzBLU2hZSzRIWi9tM1dRKy9FNjN2QjEvc2M1MnV4cENMMmtEanplNXYzdkRIaWRrMkNHa0RHcGgK b0VoVU9uTnNLSU5CU0FLWmlTdTdUazJnTGxJZ2Uwc01kcWVFekJVUkVUc2R4QUpBZmh3c1UxTjBz SW9adWhYbgpPVFpwdWJ4MENkTWVXN0FkaExjRGFlcXU3Z3dBbVpwL3U2L3FYVytGeDV6THlvc0FI WFVFL2k2ZWlZRndOSVhTCmN3Tyt5MTZFcVBlMDJpZlhkQXlINm9GSkFWRVBtblpFTzJqSXA3bUlZ enFFSW9hd2pnaHpOemtvWmtNZnB6WnUKd2lueTVQb3RJSWw0ZVdyZVBDODFFdkR0Qm1FU1l6c1BB TnZ1d0VlTEVVYWN6VGpETjFkWDJNUC9BTW1zdGdKTQpzNkRMNEo4R3RpVDB3TG53NGtsTjAvaTdT T0lVajZ0Mjd6dENKdEd5YlcwYTdKdHFBeGwrTmZYM0FyNC9FWTZiCm1mYWFPYjV6VVVUUktVbzhv ZWd0WWFVd29KTDZlWWhMdUVzYnYxWnU4dGdTU0xxaDRubmdURGc1dEhNYUFpZlUKblEycjg2Ly9U M1FFaCs2dmJiWTJYZy9NR2xib0dkWDNBQkRZRG14SVBHekViL1BZaHpibzJkcjZQdEk1QUFNWgpG dz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K " />
+            <entry key="PRIVATE_KEY_PASSWORD" value="Khrn6567" />
+            <entry key="PUBLISH_TOKEN" value="perm:Y29ydGl6.OTItMTA3MDY=.CmFeqsaGxsp9LnZfmKoNYlKAaRWfgU" />
+          </map>
+        </option>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="signPlugin" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ssl-toolbox" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ssl-toolbox" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.Run Plugin" />
+      <item itemvalue="Gradle.Keytool [signPlugin]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Keytool [signPlugin]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -128,7 +182,8 @@
       <workItem from="1724556319474" duration="6829000" />
       <workItem from="1724638755660" duration="1751000" />
       <workItem from="1724641284113" duration="3845000" />
-      <workItem from="1724646280665" duration="3142000" />
+      <workItem from="1724646280665" duration="3240000" />
+      <workItem from="1724895697031" duration="1329000" />
     </task>
     <task id="LOCAL-00001" summary="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations.">
       <option name="closed" value="true" />
@@ -186,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724649383802</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Adjusted GitHub Actions workflow to trigger changes in the 'docs' directory.">
+      <option name="closed" value="true" />
+      <created>1724649483127</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1724649483127</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +276,8 @@
     <MESSAGE value="Implement Hugo site with GitHub Actions deployment&#10;&#10;Added Hugo configuration files and GitHub Actions workflow for site deployment to GitHub Pages. Reorganized files including default archetypes and go modules. Updated .gitignore to exclude generated files." />
     <MESSAGE value="Add PEM file type support&#10;&#10;Introduced PEMFileType class to handle PEM files and updated the plugin.xml to recognize various PEM-related file extensions. This addition improves file management and editing capabilities within the project." />
     <MESSAGE value="Add PEM file type support&#10;&#10;Introduced PEMFileType class to handle PEM files, enhancing file management and editing capabilities. Updated the plugin.xml for PEM-related file extensions and modified the plugin icon for better representation. Changes also include minor workspace adjustments and corrected geospatial references." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add PEM file type support&#10;&#10;Introduced PEMFileType class to handle PEM files, enhancing file management and editing capabilities. Updated the plugin.xml for PEM-related file extensions and modified the plugin icon for better representation. Changes also include minor workspace adjustments and corrected geospatial references." />
+    <MESSAGE value="Adjusted GitHub Actions workflow to trigger changes in the 'docs' directory." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted GitHub Actions workflow to trigger changes in the 'docs' directory." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
