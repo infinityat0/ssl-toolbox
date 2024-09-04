@@ -9,12 +9,23 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.security.cert.CertificateException;
+import java.util.Objects;
 
 public class PEMFileEditorProvider implements FileEditorProvider {
     @Override
     public boolean accept(@NotNull Project project, @NotNull VirtualFile file) {
-        // Define the criteria to accept the file type
-        return "pem".equals(file.getExtension());
+        switch (Objects.requireNonNull(file.getExtension()).toLowerCase()) {
+            case "pem":
+            case "cer":
+            case "der":
+            case "crt":
+            case "ca-bundle":
+            case "p7b":
+            case "p7c":
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override

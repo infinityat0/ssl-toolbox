@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Adjust GitHub Actions workflow and rebrand project to SSL Toolbox.&#10;&#10;Updated the GitHub Actions workflow to include 'docs' directory changes. Rebranded the project from Keytoolj to SSL Toolbox, involving updates to build.gradle.kts, settings.gradle.kts, and plugin.xml.">
+    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Rename editor type ID and update workspace configurations&#10;&#10;Changed the editor type ID to &quot;pem-file-editor&quot; for clarity. Simplified workspace configuration comments and adjusted paths, reflecting recent project rebranding efforts and workflow updates.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/ui/PEMFileEditorProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/ui/PEMFileEditorProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +70,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Keytool [setupDependencies].executor": "Run",
-    "Gradle.Keytool [signPlugin].executor": "Debug",
+    "Gradle.Keytool [signPlugin].executor": "Run",
     "Gradle.Run Plugin.executor": "Run",
     "Gradle.keytoolj [setupDependencies].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -105,7 +104,7 @@
       <recent name="com.jmpeax.ssltoolbox.ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Keytool [signPlugin]">
+  <component name="RunManager" selected="Gradle.Run Plugin">
     <configuration name="Keytool [signPlugin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="env">
@@ -189,6 +188,7 @@
       <workItem from="1725417176404" duration="226000" />
       <workItem from="1725417687951" duration="13000" />
       <workItem from="1725419463327" duration="165000" />
+      <workItem from="1725419635967" duration="275000" />
     </task>
     <task id="LOCAL-00001" summary="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations.">
       <option name="closed" value="true" />
@@ -262,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724897550778</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Rename editor type ID and update workspace configurations&#10;&#10;Changed the editor type ID to &quot;pem-file-editor&quot; for clarity. Simplified workspace configuration comments and adjusted paths, reflecting recent project rebranding efforts and workflow updates.">
+      <option name="closed" value="true" />
+      <created>1725419668125</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1725419668125</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +299,8 @@
     <MESSAGE value="Add PEM file type support&#10;&#10;Introduced PEMFileType class to handle PEM files, enhancing file management and editing capabilities. Updated the plugin.xml for PEM-related file extensions and modified the plugin icon for better representation. Changes also include minor workspace adjustments and corrected geospatial references." />
     <MESSAGE value="Adjusted GitHub Actions workflow to trigger changes in the 'docs' directory." />
     <MESSAGE value="Adjust GitHub Actions workflow and rebrand project to SSL Toolbox.&#10;&#10;Updated the GitHub Actions workflow to include 'docs' directory changes. Rebranded the project from Keytoolj to SSL Toolbox, involving updates to build.gradle.kts, settings.gradle.kts, and plugin.xml." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust GitHub Actions workflow and rebrand project to SSL Toolbox.&#10;&#10;Updated the GitHub Actions workflow to include 'docs' directory changes. Rebranded the project from Keytoolj to SSL Toolbox, involving updates to build.gradle.kts, settings.gradle.kts, and plugin.xml." />
+    <MESSAGE value="Rename editor type ID and update workspace configurations&#10;&#10;Changed the editor type ID to &quot;pem-file-editor&quot; for clarity. Simplified workspace configuration comments and adjusted paths, reflecting recent project rebranding efforts and workflow updates." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename editor type ID and update workspace configurations&#10;&#10;Changed the editor type ID to &quot;pem-file-editor&quot; for clarity. Simplified workspace configuration comments and adjusted paths, reflecting recent project rebranding efforts and workflow updates." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
