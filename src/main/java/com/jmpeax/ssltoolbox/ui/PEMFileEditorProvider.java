@@ -30,7 +30,7 @@ public class PEMFileEditorProvider implements FileEditorProvider {
     @Override
     @NotNull
     public String getEditorTypeId() {
-        return "my-custom-file-editor";
+        return "pem-file-editor";
     }
 
     @Override

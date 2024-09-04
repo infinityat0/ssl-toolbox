@@ -14,7 +14,7 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-     <p> SSL Toolbox is an IntelliJ IDEA plugin
+     <p> SSL Toolbox is an IntelliJ-based plugin
      designed to streamline the management of Java Keytool and SSL certificates.</p>
       <p>Focused on simplicity and usability, KeyMaster equips developers with the tools necessary to create, view,
       and manage SSL certificates
