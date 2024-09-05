@@ -4,12 +4,14 @@ import com.intellij.openapi.diagnostic.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import javax.security.auth.x500.X500Principal;
+import java.io.FileInputStream;
 import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -84,4 +86,27 @@ public class CertificateHelper {
         }
         return false;
     }
+
+    public static Map<String,X509Certificate> getKeyStoreCerts(InputStream keystoreIS, char[] keystorePassword) {
+        Map<String,X509Certificate> certs = new LinkedHashMap<>();
+        try {
+            KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
+            keystore.load(keystoreIS, keystorePassword);
+            Enumeration<String> aliases = keystore.aliases();
+            aliases.asIterator().forEachRemaining(alias -> {
+                try {
+                    Certificate cert = keystore.getCertificate(alias);
+                    if (cert instanceof X509Certificate) {
+                        certs.put(alias, (X509Certificate) cert);
+                    }
+                } catch (Exception e) {
+                    LOGGER.error("Error loading certificate", e);
+                }
+            });
+        } catch (Exception e) {
+            LOGGER.error("Error loading keystore", e);
+        }
+        return certs;
+    }
+
 }

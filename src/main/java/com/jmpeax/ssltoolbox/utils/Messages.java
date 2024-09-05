@@ -1,4 +1,4 @@
-package com.jmpeax.ssltoolbox.ui;
+package com.jmpeax.ssltoolbox.utils;
 
 import java.util.ResourceBundle;
 import org.jetbrains.annotations.PropertyKey;

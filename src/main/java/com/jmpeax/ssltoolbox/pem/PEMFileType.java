@@ -1,4 +1,4 @@
-package com.jmpeax.ssltoolbox.fileTypes;
+package com.jmpeax.ssltoolbox.pem;
 
 import com.intellij.icons.AllIcons;
 import com.intellij.openapi.fileTypes.FileType;

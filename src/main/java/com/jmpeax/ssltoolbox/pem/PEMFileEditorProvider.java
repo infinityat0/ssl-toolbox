@@ -1,4 +1,4 @@
-package com.jmpeax.ssltoolbox.ui;
+package com.jmpeax.ssltoolbox.pem;
 
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.fileEditor.FileEditorPolicy;
