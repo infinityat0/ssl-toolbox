@@ -25,8 +25,8 @@ public class JKSView extends JPanel {
     private JBList<String> list;
     private PemView pemView;
     private final VirtualFile file;
-    private JPanel listPanel;
-    private JPanel pemViewPanel;
+    private final JPanel listPanel;
+    private final JPanel pemViewPanel;
     private JBPasswordField passwordField;
 
     public JKSView(@NotNull VirtualFile file) {
@@ -75,9 +75,7 @@ public class JKSView extends JPanel {
 
     private JPanel createListPanel() {
         JPanel panel = new JPanel(new BorderLayout());
-        JLabel label = new JLabel("Certificate List", SwingConstants.CENTER);
         JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        labelPanel.add(label);
         panel.add(labelPanel, BorderLayout.NORTH);
         panel.add(new JScrollPane(list), BorderLayout.CENTER);
         return panel;
@@ -85,9 +83,7 @@ public class JKSView extends JPanel {
 
     private JPanel createPemViewPanel() {
         JPanel panel = new JPanel(new BorderLayout());
-        JLabel label = new JLabel("Certificate Details");
-        panel.add(label, BorderLayout.NORTH);
-        panel.add(new JPanel(), BorderLayout.CENTER); // Placeholder for PemView
+        panel.add(new JPanel(), BorderLayout.CENTER);
         return panel;
     }
 
@@ -137,8 +133,8 @@ public class JKSView extends JPanel {
                     var certs = CertificateHelper.getKeyStoreCerts(file.getInputStream(), password);
                     updateView(certs);
                     // Remove the unlock button
-                    //panel.removeAll();
-                   // panel.add(buildToolBar());
+                    panel.removeAll();
+                    panel.add(buildToolBar());
                     revalidate();
                     repaint();
                 } catch (IOException ex) {

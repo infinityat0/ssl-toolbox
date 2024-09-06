@@ -61,4 +61,8 @@ jobs:
         run: ./gradlew publishPlugin
         env:
           PLUGIN_REPO: ${{ secrets.PLUGIN_REPO }}
-          PLUGIN_TOKEN: ${{ secrets.PLUGIN_TOKEN }}
+          CERTIFICATE_CHAIN: ${{ secrets.CERTIFICATE_CHAIN }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          PRIVATE_KEY_PASSWORD: ${{ secrets.PRIVATE_KEY_PASSWORD }}
+          PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+          CHANNEL: alpha
