@@ -5,7 +5,7 @@ on:
     branches:
       - main
     tags:
-      - 'alpha-*'
+      - '*-alpha'
 
 jobs:
   build:
