@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Add support for JKS file management and plugin UI updates&#10;&#10;Introduced functionality for handling Java Keystore (JKS) files directly within the plugin, including a new file chooser and import alias dialog. Updated plugin.xml to reflect new version and release notes. Adjusted toolbar icons for better visual alignment.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Enhance JKSView with UI improvements and functionality updates&#10;&#10;Added a final `DefaultListModel` for certificate alias management and `Map` for X509 certificates. Modified UI elements for improved user interaction, including updated panel borders and more efficient toolbar layout. Introduced a file chooser dialog for importing certificates, along with robust logging for tracking selected file details.">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/jks/JKSView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/jks/JKSView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -237,7 +236,7 @@
       <workItem from="1725496043075" duration="11653000" />
       <workItem from="1725580455015" duration="27000" />
       <workItem from="1725580838602" duration="7806000" />
-      <workItem from="1725629468371" duration="1676000" />
+      <workItem from="1725629468371" duration="1748000" />
     </task>
     <task id="LOCAL-00001" summary="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations.">
       <option name="closed" value="true" />
@@ -391,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725600149851</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Enhance JKSView with UI improvements and functionality updates&#10;&#10;Added a final `DefaultListModel` for certificate alias management and `Map` for X509 certificates. Modified UI elements for improved user interaction, including updated panel borders and more efficient toolbar layout. Introduced a file chooser dialog for importing certificates, along with robust logging for tracking selected file details.">
+      <option name="closed" value="true" />
+      <created>1725631202577</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1725631202577</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +438,8 @@
     <MESSAGE value="Add GitHub Actions workflows for stable and beta deployments&#10;&#10;Introduces deploy-stable.yml for stable releases triggered by tags starting with 'v*' and deploy-beta.yml for beta releases triggered by tags ending in '-beta'. Both workflows set up JDK 17, cache Gradle packages, and run build, test, and publish steps. This ensures efficient CI/CD for different release channels." />
     <MESSAGE value="Change icons and add file chooser dialog.&#10;&#10;Updated the toolbar button icons for better consistency. Added a file chooser dialog to allow users to select files and enter passwords. Additionally, integrated a logger to capture selected file details." />
     <MESSAGE value="Add support for JKS file management and plugin UI updates&#10;&#10;Introduced functionality for handling Java Keystore (JKS) files directly within the plugin, including a new file chooser and import alias dialog. Updated plugin.xml to reflect new version and release notes. Adjusted toolbar icons for better visual alignment." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add support for JKS file management and plugin UI updates&#10;&#10;Introduced functionality for handling Java Keystore (JKS) files directly within the plugin, including a new file chooser and import alias dialog. Updated plugin.xml to reflect new version and release notes. Adjusted toolbar icons for better visual alignment." />
+    <MESSAGE value="Enhance JKSView with UI improvements and functionality updates&#10;&#10;Added a final `DefaultListModel` for certificate alias management and `Map` for X509 certificates. Modified UI elements for improved user interaction, including updated panel borders and more efficient toolbar layout. Introduced a file chooser dialog for importing certificates, along with robust logging for tracking selected file details." />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhance JKSView with UI improvements and functionality updates&#10;&#10;Added a final `DefaultListModel` for certificate alias management and `Map` for X509 certificates. Modified UI elements for improved user interaction, including updated panel borders and more efficient toolbar layout. Introduced a file chooser dialog for importing certificates, along with robust logging for tracking selected file details." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

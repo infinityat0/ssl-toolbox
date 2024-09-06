@@ -175,6 +175,7 @@ public class JKSView extends JPanel {
             if (file != null) {
                 var str = Messages.showInputDialog("Enter Alias for " + file.getName(), "Alias for Imported Certificate", null);
                 LoggerFactory.getLogger(JKSView.class).info("Selected file: alias {} {}", str, file.getPath());
+                this.listModel.addElement(str);
             }
         });
         gbc.gridx = 0;
