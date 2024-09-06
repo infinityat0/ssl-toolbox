@@ -20,6 +20,23 @@
       and manage SSL certificates
       directly within the IntelliJ IDEA environment.</p>
   ]]></description>
+    <change-notes><![CDATA[
+        <h1>SSL Toolbox Plugin Update - Version 0.1.2-alpha</h1>
+        <p><strong>Release Date:</strong> September 10, 2024</p>
+        <div class="section">
+            <h2>New Features</h2>
+            <ul>
+                <li>
+                    <h3>Support for JKS Files</h3>
+                    <p>Added support for Java Keystore (JKS) files,This allows users to manage JKS files directly from the plugin.</p>
+                </li>
+            <li>
+            <h3>Support Additional Certificate File Types</h3>
+           </li>
+           </ul>
+        </div>
+        <hr/>
+    ]]></change-notes>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->

@@ -1,6 +1,9 @@
 package com.jmpeax.ssltoolbox.jks;
 
 import com.intellij.icons.AllIcons;
+import com.intellij.openapi.fileChooser.FileChooser;
+import com.intellij.openapi.fileChooser.FileChooserDescriptor;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBList;
@@ -10,6 +13,7 @@ import com.jmpeax.ssltoolbox.pem.PemView;
 import com.jmpeax.ssltoolbox.svc.CertificateHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -147,30 +151,34 @@ public class JKSView extends JPanel {
 
     private JPanel buildToolBar() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JButton openButton = new JButton(AllIcons.Actions.Menu_open);
+        JButton openButton = new JButton(AllIcons.ToolbarDecorator.Import);
 
         openButton.setToolTipText("Open");
-        openButton.setPreferredSize(new Dimension(AllIcons.Actions.Menu_open.getIconWidth() + 10, AllIcons.Actions.Menu_open.getIconHeight() + 10));
+        openButton.setPreferredSize(new Dimension(AllIcons.ToolbarDecorator.Import.getIconWidth() + 10, AllIcons.ToolbarDecorator.Import.getIconHeight() + 10));
 
         openButton.addActionListener(e -> {
+            var descriptor  = new FileChooserDescriptor(
+                    true,  // Choose Files
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+            );
+            VirtualFile file = FileChooser.chooseFile(descriptor,null, null);
+            if (file != null) {
+                var str = Messages.showInputDialog("Enter Alias for" + file.getName(), "Alias for Imported Certificate", null);
+                LoggerFactory.getLogger(JKSView.class).info("Selected file: alias {} {}",str, file.getPath());
+            }
         });
         panel.add(openButton);
-        JButton saveButton = new JButton(AllIcons.Actions.Menu_saveall);
-        saveButton.setPreferredSize(new Dimension(AllIcons.Actions.Menu_saveall.getIconWidth() + 10, AllIcons.Actions.Menu_saveall.getIconHeight() + 10));
+        JButton saveButton = new JButton(AllIcons.ToolbarDecorator.Export);
+        saveButton.setPreferredSize(new Dimension(AllIcons.ToolbarDecorator.Export.getIconWidth() + 10, AllIcons.ToolbarDecorator.Export.getIconHeight() + 10));
 
         saveButton.setToolTipText("Save");
         saveButton.addActionListener(e -> {
         });
         panel.add(saveButton);
-
-        JButton closeButton = new JButton(AllIcons.Actions.Cancel);
-        closeButton.setPreferredSize(new Dimension(AllIcons.Actions.Cancel.getIconWidth() + 10, AllIcons.Actions.Cancel.getIconHeight() + 10));
-
-        closeButton.setToolTipText("Close");
-        closeButton.addActionListener(e -> {
-        });
-        panel.add(closeButton);
-
 
         return panel;
     }
