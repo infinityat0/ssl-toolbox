@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Add JKS file support and streamline package structure&#10;&#10;Introduced support for JKS files, including editor and view implementations. Refactored existing packages for clearer structure, updating PEM references accordingly. Removed unnecessary quotes in properties files to ensure text consistency.">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/deploy-alpha.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/test.yaml" afterDir="false" />
+    <list default="true" id="59d96402-7939-4683-88ee-f288879280eb" name="Changes" comment="Add support for JKS file management and plugin UI updates&#10;&#10;Introduced functionality for handling Java Keystore (JKS) files directly within the plugin, including a new file chooser and import alias dialog. Updated plugin.xml to reflect new version and release notes. Adjusted toolbar icons for better visual alignment.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/jks/JKSView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jmpeax/ssltoolbox/jks/JKSView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +69,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2023.2.6/f9a8cbfa07e631d1615cc5096d6f84cf2522e27b/ideaIC-2023.2.6-sources.jar!/com/intellij/icons/AllIcons.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2023.2.6/f9a8cbfa07e631d1615cc5096d6f84cf2522e27b/ideaIC-2023.2.6-sources.jar!/com/intellij/openapi/fileChooser/FileChooser.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -90,31 +92,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Keytool [setupDependencies].executor": "Run",
-    "Gradle.Keytool [signPlugin].executor": "Run",
-    "Gradle.Run Plugin.executor": "Run",
-    "Gradle.keytoolj [setupDependencies].executor": "Run",
-    "Gradle.ssl-toolbox [publishPlugin].executor": "Run",
-    "Gradle.ssl-toolbox [setupDependencies].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/cortiz/repos/jmpeax/ssl-toolbox",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Keytool [setupDependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Keytool [signPlugin].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Run Plugin.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.keytoolj [setupDependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ssl-toolbox [publishPlugin].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ssl-toolbox [setupDependencies].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/cortiz/repos/jmpeax/ssl-toolbox/.github/workflows&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.grazie.pro&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.github/workflows" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/icons" />
       <recent name="$PROJECT_DIR$/docs/content/en/docs" />
@@ -131,13 +134,12 @@
       <recent name="com.jmpeax.ssltoolbox.ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ssl-toolbox [publishPlugin]">
+  <component name="RunManager" selected="Gradle.Run Plugin">
     <configuration name="Keytool [signPlugin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="env">
           <map>
             <entry key="PRIVATE_KEY_PASSWORD" value="Khrn6567^%^&amp;" />
-            <entry key="PUBLISH_TOKEN" value="perm:Y29ydGl6.OTItMTA3MDY=.CmFeqsaGxsp9LnZfmKoNYlKAaRWfgU" />
           </map>
         </option>
         <option name="executionName" />
@@ -196,8 +198,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ssl-toolbox [publishPlugin]" />
         <item itemvalue="Gradle.Keytool [signPlugin]" />
+        <item itemvalue="Gradle.ssl-toolbox [publishPlugin]" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +236,8 @@
       <workItem from="1725419635967" duration="275000" />
       <workItem from="1725496043075" duration="11653000" />
       <workItem from="1725580455015" duration="27000" />
-      <workItem from="1725580838602" duration="2218000" />
+      <workItem from="1725580838602" duration="7806000" />
+      <workItem from="1725629468371" duration="1676000" />
     </task>
     <task id="LOCAL-00001" summary="Rename packages for SSL Toolbox rebranding&#10;&#10;Refactor all package names from &quot;com.jmpeax.keytoolj&quot; to &quot;com.jmpeax.ssltoolbox&quot;. This change aligns with the rebranding effort from Keytoolj to SSL Toolbox, altering references in Java files and project configurations.">
       <option name="closed" value="true" />
@@ -332,7 +335,63 @@
       <option name="project" value="LOCAL" />
       <updated>1725514436334</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add CI workflows and update Gradle build script&#10;&#10;Introduce GitHub Actions workflows for testing on merge and publishing on alpha tags. Update `build.gradle.kts` to support dynamic plugin channels. Changes also include adjustments to project configuration in `.idea/workspace.xml`.">
+      <option name="closed" value="true" />
+      <created>1725590761080</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1725590761080</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add environment variables and UI panel final modifiers&#10;&#10;This commit updates the deployment workflow to use new environment variables for signing the plugin. It also refactors UI code in `JKSView.java` to make some panel fields final and removes redundant labels. The changes streamline the signing process and enhance code clarity.">
+      <option name="closed" value="true" />
+      <created>1725596660807</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1725596660807</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add environment variables and UI panel final modifiers&#10;&#10;This commit updates the deployment workflow to use new environment variables for signing the plugin. It also refactors UI code in `JKSView.java` to make some panel fields final and removes redundant labels. The changes streamline the signing process and enhance code clarity.">
+      <option name="closed" value="true" />
+      <created>1725596694191</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1725596694191</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Simplify deploy-alpha workflow&#10;&#10;Combine build, test, and publish steps into a single action, removing redundant code and improving efficiency. This change ensures all necessary tasks are completed in one run, streamlining the deployment process to the alpha channel.">
+      <option name="closed" value="true" />
+      <created>1725597206089</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1725597206089</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update deploy-alpha workflow for tag-based triggers&#10;&#10;Removed the branch-based trigger to deploy only on tagged commits and cleaned up an unused environment variable. This ensures deployments to the alpha environment are streamlined and less error-prone.">
+      <option name="closed" value="true" />
+      <created>1725598231624</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1725598231624</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add GitHub Actions workflows for stable and beta deployments&#10;&#10;Introduces deploy-stable.yml for stable releases triggered by tags starting with 'v*' and deploy-beta.yml for beta releases triggered by tags ending in '-beta'. Both workflows set up JDK 17, cache Gradle packages, and run build, test, and publish steps. This ensures efficient CI/CD for different release channels.">
+      <option name="closed" value="true" />
+      <created>1725598424694</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1725598424694</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add support for JKS file management and plugin UI updates&#10;&#10;Introduced functionality for handling Java Keystore (JKS) files directly within the plugin, including a new file chooser and import alias dialog. Updated plugin.xml to reflect new version and release notes. Adjusted toolbar icons for better visual alignment.">
+      <option name="closed" value="true" />
+      <created>1725600149851</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1725600149851</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +423,15 @@
     <MESSAGE value="Rename editor type ID and update workspace configurations&#10;&#10;Changed the editor type ID to &quot;pem-file-editor&quot; for clarity. Simplified workspace configuration comments and adjusted paths, reflecting recent project rebranding efforts and workflow updates." />
     <MESSAGE value="Bump version to 0.1.2-alpha&#10;&#10;Update the project version from 0.1.1-alpha to 0.1.2-alpha in build.gradle.kts. This change is necessary to reflect recent improvements and fixes." />
     <MESSAGE value="Add JKS file support and streamline package structure&#10;&#10;Introduced support for JKS files, including editor and view implementations. Refactored existing packages for clearer structure, updating PEM references accordingly. Removed unnecessary quotes in properties files to ensure text consistency." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add JKS file support and streamline package structure&#10;&#10;Introduced support for JKS files, including editor and view implementations. Refactored existing packages for clearer structure, updating PEM references accordingly. Removed unnecessary quotes in properties files to ensure text consistency." />
+    <MESSAGE value="Add CI workflows and update Gradle build script&#10;&#10;Introduce GitHub Actions workflows for testing on merge and publishing on alpha tags. Update `build.gradle.kts` to support dynamic plugin channels. Changes also include adjustments to project configuration in `.idea/workspace.xml`." />
+    <MESSAGE value="Add environment variables and UI panel final modifiers&#10;&#10;This commit updates the deployment workflow to use new environment variables for signing the plugin. It also refactors UI code in `JKSView.java` to make some panel fields final and removes redundant labels. The changes streamline the signing process and enhance code clarity." />
+    <MESSAGE value="Update deploy workflow to run tests during publish&#10;&#10;Consolidate the test and publish steps to ensure tests are run before publishing the plugin. This change removes redundant steps and streamlines the deployment process." />
+    <MESSAGE value="Simplify deploy-alpha workflow&#10;&#10;Combine build, test, and publish steps into a single action, removing redundant code and improving efficiency. This change ensures all necessary tasks are completed in one run, streamlining the deployment process to the alpha channel." />
+    <MESSAGE value="Update deploy-alpha workflow for tag-based triggers&#10;&#10;Removed the branch-based trigger to deploy only on tagged commits and cleaned up an unused environment variable. This ensures deployments to the alpha environment are streamlined and less error-prone." />
+    <MESSAGE value="Add GitHub Actions workflows for stable and beta deployments&#10;&#10;Introduces deploy-stable.yml for stable releases triggered by tags starting with 'v*' and deploy-beta.yml for beta releases triggered by tags ending in '-beta'. Both workflows set up JDK 17, cache Gradle packages, and run build, test, and publish steps. This ensures efficient CI/CD for different release channels." />
+    <MESSAGE value="Change icons and add file chooser dialog.&#10;&#10;Updated the toolbar button icons for better consistency. Added a file chooser dialog to allow users to select files and enter passwords. Additionally, integrated a logger to capture selected file details." />
+    <MESSAGE value="Add support for JKS file management and plugin UI updates&#10;&#10;Introduced functionality for handling Java Keystore (JKS) files directly within the plugin, including a new file chooser and import alias dialog. Updated plugin.xml to reflect new version and release notes. Adjusted toolbar icons for better visual alignment." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add support for JKS file management and plugin UI updates&#10;&#10;Introduced functionality for handling Java Keystore (JKS) files directly within the plugin, including a new file chooser and import alias dialog. Updated plugin.xml to reflect new version and release notes. Adjusted toolbar icons for better visual alignment." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
