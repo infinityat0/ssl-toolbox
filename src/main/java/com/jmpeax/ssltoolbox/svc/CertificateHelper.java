@@ -109,4 +109,7 @@ public class CertificateHelper {
         return certs;
     }
 
+    public static void importCertificate(@NotNull InputStream inputStream, @NotNull InputStream inputStream1, char[] charArray) {
+
+    }
 }

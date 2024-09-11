@@ -55,4 +55,17 @@
         <fileEditorProvider implementation="com.jmpeax.ssltoolbox.jks.JKSFileEditorProvider" />
         <fileType name="JKS file" implementationClass="com.jmpeax.ssltoolbox.jks.JKSFileType" extensions="jks;p12"/>
     </extensions>
+
+    <actions>
+
+        <group id="JKS-Actions"
+               text="JKS Actions" description="JKS actions"
+               popup="true" icon="AllIcons.Ide.ConfigFile">
+            <action id="import-cert-jks" class="com.jmpeax.ssltoolbox.jks.actions.ImportCert"
+                    text="Import" description="Import certificate"
+                    icon="AllIcons.Actions.Refresh">
+            </action>
+        </group>
+
+    </actions>
 </idea-plugin>
