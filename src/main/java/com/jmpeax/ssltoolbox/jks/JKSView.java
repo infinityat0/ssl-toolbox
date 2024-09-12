@@ -5,10 +5,8 @@ import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionToolbar;
 import com.intellij.openapi.actionSystem.DataContext;
-import com.intellij.openapi.fileChooser.FileChooser;
-import com.intellij.openapi.fileChooser.FileChooserDescriptor;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.Messages;
+import com.intellij.openapi.application.ApplicationManager;
+
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBList;
@@ -18,7 +16,7 @@ import com.jmpeax.ssltoolbox.pem.PemView;
 import com.jmpeax.ssltoolbox.svc.CertificateHelper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.LoggerFactory;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -142,7 +140,8 @@ public class JKSView extends JPanel {
             char[] password = passwordField.getPassword();
             if (password != null) {
                 try {
-                    this.certs = CertificateHelper.getKeyStoreCerts(file.getInputStream(), password);
+                    var certificateHelper = ApplicationManager.getApplication().getService(CertificateHelper.class);
+                    this.certs = certificateHelper.getKeyStoreCerts(file.getInputStream(), password);
                     updateView(certs);
                     panel.removeAll();
                     panel.add(buildToolBar());

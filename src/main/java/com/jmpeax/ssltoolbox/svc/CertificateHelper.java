@@ -1,12 +1,17 @@
 package com.jmpeax.ssltoolbox.svc;
 
+import com.intellij.openapi.components.Service;
 import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
 import javax.security.auth.x500.X500Principal;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
@@ -22,16 +27,17 @@ import java.util.stream.Collectors;
  * This class contains the following methods:
  * <p>
  * 1. getCertificate - This static method takes an InputStream containing a certificate and returns a Set of X509Certificates. It uses the X.509 CertificateFactory to generate the
- *  certificates from the input stream.
+ * certificates from the input stream.
  * <p>
  * 2. getCommonName - This static method takes an X509Certificate and returns the Common Name (CN) from the subject of the certificate. It uses regular expressions to extract the
- *  CN from the subject's name.
+ * CN from the subject's name.
  * <p>
  * 3. isValid - This static method takes an X509Certificate and checks if it is valid. It uses the checkValidity() method of the certificate to perform the validation.
  * <p>
  * Please note that this class relies on a logger instance from the Logger class for logging purposes.
  */
-public class CertificateHelper {
+@Service()
+public final class CertificateHelper {
     private static final Logger LOGGER = Logger.getInstance(CertificateHelper.class);
 
 
@@ -41,14 +47,12 @@ public class CertificateHelper {
      * @param certificateInput the input stream from which to retrieve the certificates
      * @return a set of X.509 certificates obtained from the input stream
      */
-    public static Set<X509Certificate> getCertificate(InputStream certificateInput){
-        try {
+    public @NotNull Set<X509Certificate> getCertificate(@NotNull VirtualFile certificateInput) {
+        try (var is = certificateInput.getInputStream()) {
             var fac = CertificateFactory.getInstance("X.509");
-            return  fac.generateCertificates(certificateInput).stream()
-                    .map(c -> (X509Certificate) c)
-                    .collect(Collectors.toCollection(LinkedHashSet::new));
-        } catch (CertificateException e) {
-            LOGGER.error("Unable to create Certification Factory",e);
+            return fac.generateCertificates(is).stream().map(c -> (X509Certificate) c).collect(Collectors.toCollection(LinkedHashSet::new));
+        } catch (IOException | CertificateException e) {
+            LOGGER.error("Unable to create Certification Factory", e);
         }
         return Set.of();
     }
@@ -60,7 +64,7 @@ public class CertificateHelper {
      * @return the Common Name (CN) extracted from the subject of the certificate
      */
     @NotNull
-    public static String  getCommonName(@NotNull X509Certificate certificate) {
+    public String getCommonName(@NotNull X509Certificate certificate) {
         X500Principal principal = certificate.getSubjectX500Principal();
         String subject = principal.getName();
         Pattern pattern = Pattern.compile("CN=([^,]*)");
@@ -77,7 +81,7 @@ public class CertificateHelper {
      * @param certificate the X509Certificate to be checked for validity
      * @return true if the certificate is valid, false otherwise
      */
-    public static boolean isValid(@NotNull X509Certificate certificate) {
+    public boolean isValid(@NotNull X509Certificate certificate) {
         try {
             certificate.checkValidity();
             return true;
@@ -87,11 +91,17 @@ public class CertificateHelper {
         return false;
     }
 
-    public static Map<String,X509Certificate> getKeyStoreCerts(InputStream keystoreIS, char[] keystorePassword) {
-        Map<String,X509Certificate> certs = new LinkedHashMap<>();
+    /**
+     * Retrieves a map of X.509 certificates from the given keystore input stream.
+     *
+     * @param keystoreIS       the input stream from which to load the keystore
+     * @param keystorePassword the password used to protect the integrity of the keystore
+     * @return a map where the keys are certificate aliases and the values are X.509 certificates
+     */
+    public @NotNull Map<String, X509Certificate> getKeyStoreCerts(@NotNull InputStream keystoreIS, char[] keystorePassword) {
+        Map<String, X509Certificate> certs = new LinkedHashMap<>();
         try {
-            KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
-            keystore.load(keystoreIS, keystorePassword);
+            var keystore = openKeyStore(keystoreIS, keystorePassword);
             Enumeration<String> aliases = keystore.aliases();
             aliases.asIterator().forEachRemaining(alias -> {
                 try {
@@ -109,7 +119,43 @@ public class CertificateHelper {
         return certs;
     }
 
-    public static void importCertificate(@NotNull InputStream inputStream, @NotNull InputStream inputStream1, char[] charArray) {
+    /**
+     * Opens a keystore from the specified input stream using the provided password.
+     *
+     * @param keystoreIS       the input stream from which to load the keystore
+     * @param keystorePassword the password used to protect the integrity of the keystore
+     * @return a loaded KeyStore instance
+     * @throws KeyStoreException        if no Provider supports a KeyStoreSpi implementation for the specified type
+     * @throws CertificateException     if any of the certificates in the keystore could not be loaded
+     * @throws IOException              if there is an I/O or format problem with the keystore data
+     * @throws NoSuchAlgorithmException if the algorithm used to check the integrity of the keystore cannot be found
+     */
+    private KeyStore openKeyStore(@NotNull InputStream keystoreIS, char[] keystorePassword) throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException {
+        KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
+        keystore.load(keystoreIS, keystorePassword);
+        return keystore;
+    }
+
+    /**
+     * Imports a certificate into a keystore file.
+     *
+     * @param keyStoreFile the keystore file into which the certificate will be imported
+     * @param certToImport the certificate file to be imported
+     * @param alias        the alias under which the certificate will be stored
+     * @param password     the password for the keystore
+     * @throws IOException if an I/O error occurs during the operation
+     */
+    public void importCertificate(@NotNull VirtualFile keyStoreFile, @NotNull VirtualFile certToImport, @NotNull String alias, char[] password) throws IOException {
+        try (var keystoreIS = keyStoreFile.getInputStream()) {
+            var keystore = openKeyStore(keystoreIS, password);
+            var cert = getCertificate(certToImport).stream().findFirst().orElseThrow();
+            keystore.setCertificateEntry(alias, cert);
+            var out = Files.newOutputStream(keyStoreFile.toNioPath(), StandardOpenOption.WRITE);
+            keyStoreFile.refresh(false, false);
+            keystore.store(out, password);
+        } catch (Exception e) {
+            LOGGER.error("Error importing certificate", e);
+        }
 
     }
 }
