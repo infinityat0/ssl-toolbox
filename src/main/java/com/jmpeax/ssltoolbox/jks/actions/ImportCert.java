@@ -4,11 +4,13 @@ package com.jmpeax.ssltoolbox.jks.actions;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileChooser.FileChooser;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.jmpeax.ssltoolbox.jks.JKSView;
 import com.jmpeax.ssltoolbox.svc.CertificateHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -51,11 +53,18 @@ public class ImportCert extends AnAction {
             if (pwd != null && !pwd.isBlank()) {
                 certificateHelper.importCertificate(ksVirtualFile, file,selectedAlias.getInput(), pwd.toCharArray());
                 Messages.showInfoMessage("Certificate imported", "Certificate Imported");
-
+                getViewComponent(e);
             }
 
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    private JKSView getViewComponent(@NotNull AnActionEvent e) {
+        // Retrieve your view component from context, e.g., using the data context from the event
+        return e.getData(PlatformDataKeys.CONTEXT_COMPONENT) instanceof JKSView
+                ? (JKSView) e.getData(PlatformDataKeys.CONTEXT_COMPONENT)
+                : null;
     }
 }

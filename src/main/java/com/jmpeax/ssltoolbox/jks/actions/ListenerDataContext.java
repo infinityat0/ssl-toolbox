@@ -31,7 +31,7 @@ public class ListenerDataContext implements DataContext {
         onImport.imported(alias,certificate);
     }
 
-    public interface OnImport {
+    interface OnImport {
         void imported(String alias, X509Certificate cert);
     }
 }

@@ -11,7 +11,6 @@ import com.intellij.ui.components.JBList;
 import com.intellij.ui.components.JBPasswordField;
 import com.intellij.util.ui.JBUI;
 import com.jmpeax.ssltoolbox.jks.actions.ImportCert;
-import com.jmpeax.ssltoolbox.jks.actions.ListenerDataContext;
 import com.jmpeax.ssltoolbox.pem.PemView;
 import com.jmpeax.ssltoolbox.svc.CertificateHelper;
 import org.jetbrains.annotations.NotNull;
@@ -159,9 +158,7 @@ public class JKSView extends JPanel {
         ActionGroup actionGroup = (ActionGroup) ActionManager.getInstance().getAction("JKS-Actions");
         ActionToolbar actionToolBar = ActionManager.getInstance().createActionToolbar("JKS-Actions-Toolbar", actionGroup, true);
         actionToolBar.setTargetComponent(this);
-        DataContext dataContext = new ListenerDataContext(file, (alias, cert) -> {
-
-        })
+        DataContext dataContext = dataId -> this.file;
         actionToolBar.getComponent().putClientProperty(DataContext.class, dataContext);
 
 
