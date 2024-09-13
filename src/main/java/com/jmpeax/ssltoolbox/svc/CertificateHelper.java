@@ -4,6 +4,7 @@ import com.intellij.openapi.components.Service;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.security.auth.x500.X500Principal;
 import java.io.*;
@@ -156,6 +157,18 @@ public final class CertificateHelper {
         } catch (Exception e) {
             LOGGER.error("Error importing certificate", e);
         }
+    }
 
+    public @Nullable X509Certificate exportCertificate(VirtualFile ksVirtualFile,
+                                                       String selectedAlias,
+                                                       char[] password) {
+        try(var is = ksVirtualFile.getInputStream()) {
+            var keystore = openKeyStore(is, password);
+            var cert = keystore.getCertificate(selectedAlias);
+            return (X509Certificate) cert;
+        } catch (Exception e) {
+            LOGGER.error("Error exporting certificate", e);
+            return null;
+        }
     }
 }

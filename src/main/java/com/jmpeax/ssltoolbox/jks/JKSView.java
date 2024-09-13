@@ -1,7 +1,6 @@
 package com.jmpeax.ssltoolbox.jks;
 
 import com.intellij.icons.AllIcons;
-import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.application.ApplicationManager;
 
@@ -10,7 +9,6 @@ import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBList;
 import com.intellij.ui.components.JBPasswordField;
 import com.intellij.util.ui.JBUI;
-import com.jmpeax.ssltoolbox.jks.actions.ImportCert;
 import com.jmpeax.ssltoolbox.pem.PemView;
 import com.jmpeax.ssltoolbox.svc.CertificateHelper;
 import org.jetbrains.annotations.NotNull;
@@ -28,6 +26,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class JKSView extends JPanel {
+
     private JBList<String> list;
     private PemView pemView;
     private final VirtualFile file;
@@ -141,7 +140,7 @@ public class JKSView extends JPanel {
                 try {
                     var certificateHelper = ApplicationManager.getApplication().getService(CertificateHelper.class);
                     this.certs = certificateHelper.getKeyStoreCerts(file.getInputStream(), password);
-                    updateView(certs);
+                    addCertificate(certs);
                     panel.removeAll();
                     panel.add(buildToolBar());
                     revalidate();
@@ -174,7 +173,7 @@ public class JKSView extends JPanel {
 
     }
 
-    private void updateView(Map<String, X509Certificate> certs) {
+    private void addCertificate(Map<String, X509Certificate> certs) {
         certs.keySet().forEach(listModel::addElement);
         list = new JBList<>(listModel);
         list.setCellRenderer(new IconListRenderer());
@@ -189,7 +188,6 @@ public class JKSView extends JPanel {
         });
         listPanel.removeAll();
         listPanel.add(new JScrollPane(list), BorderLayout.CENTER);
-
     }
 
     public @Nullable JComponent getUnlockText() {
@@ -203,5 +201,18 @@ public class JKSView extends JPanel {
             label.setIcon(AllIcons.FileTypes.Any_type);
             return label;
         }
+    }
+
+    public void addCertificate(String alias, X509Certificate certificate) {
+        listModel.addElement(alias);
+        certs.put(alias, certificate);
+    }
+
+    public String getSelectedCertificate() {
+        return list.getSelectedValue();
+    }
+    public void removeCertificate(String alias) {
+        listModel.remove(listModel.indexOf(alias));
+        certs.remove(alias);
     }
 }

@@ -64,7 +64,11 @@
                popup="true" icon="AllIcons.Ide.ConfigFile">
             <action id="import-cert-jks" class="com.jmpeax.ssltoolbox.jks.actions.ImportCert"
                     text="Import" description="Import certificate"
-                    icon="AllIcons.Actions.Refresh">
+                    icon="AllIcons.Ide.IncomingChangesOn">
+            </action>
+            <action id="export-cert-jks" class="com.jmpeax.ssltoolbox.jks.actions.ExportCert"
+                    text="Export" description="Export certificate"
+                    icon="AllIcons.Ide.OutgoingChangesOn">
             </action>
         </group>
 

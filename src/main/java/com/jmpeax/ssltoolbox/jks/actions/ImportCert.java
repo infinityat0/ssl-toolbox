@@ -15,6 +15,7 @@ import com.jmpeax.ssltoolbox.svc.CertificateHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ImportCert extends AnAction {
 
@@ -53,7 +54,8 @@ public class ImportCert extends AnAction {
             if (pwd != null && !pwd.isBlank()) {
                 certificateHelper.importCertificate(ksVirtualFile, file,selectedAlias.getInput(), pwd.toCharArray());
                 Messages.showInfoMessage("Certificate imported", "Certificate Imported");
-                getViewComponent(e);
+                Objects.requireNonNull(getViewComponent(e)).addCertificate(selectedAlias.getInput(),
+                        certificateHelper.getCertificate(file).stream().findFirst().orElseThrow());
             }
 
         } catch (IOException ex) {
