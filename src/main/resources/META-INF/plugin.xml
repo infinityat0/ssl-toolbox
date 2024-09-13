@@ -70,6 +70,10 @@
                     text="Export" description="Export certificate"
                     icon="AllIcons.Ide.OutgoingChangesOn">
             </action>
+            <action id="delete-cert-jks" class="com.jmpeax.ssltoolbox.jks.actions.DeletetCert"
+                    text="Delete" description="Delete certificate"
+                    icon="AllIcons.Ide.Notification.CloseHover">
+            </action>
         </group>
 
     </actions>

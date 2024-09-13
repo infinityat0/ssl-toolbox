@@ -1,6 +1,7 @@
 package com.jmpeax.ssltoolbox.pem;
 
 import com.intellij.ui.components.JBPanel;
+import com.intellij.ui.components.JBTextField;
 import com.intellij.util.ui.JBUI;
 import com.jmpeax.ssltoolbox.utils.Messages;
 import org.jetbrains.annotations.NotNull;
@@ -35,7 +36,7 @@ import java.util.Date;
  * This method is used to create the text fields displaying the certificate details in the panel.
  * <p>
  * The `PemView` class does not provide any public methods or properties other than the constructor.*/
-public class PemView extends JBPanel {
+public class PemView extends JBPanel<PemView> {
 
     public PemView(@NotNull X509Certificate certificate) {
         super(new GridBagLayout());
@@ -138,9 +139,10 @@ public class PemView extends JBPanel {
        return isoFormatter.format(offsetDateTime);
     }
 
-    private JTextField buildText(String text){
-        var textField = new JTextField(text,30);
+    private JBTextField buildText(String text){
+        var textField = new JBTextField(text,30);
         textField.setEditable(false);
+        textField.setCaretPosition(0);
         return textField;
     }
 

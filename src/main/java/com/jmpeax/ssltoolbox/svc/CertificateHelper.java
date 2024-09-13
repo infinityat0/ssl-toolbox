@@ -162,13 +162,48 @@ public final class CertificateHelper {
     public @Nullable X509Certificate exportCertificate(VirtualFile ksVirtualFile,
                                                        String selectedAlias,
                                                        char[] password) {
-        try(var is = ksVirtualFile.getInputStream()) {
+        try (var is = ksVirtualFile.getInputStream()) {
             var keystore = openKeyStore(is, password);
             var cert = keystore.getCertificate(selectedAlias);
             return (X509Certificate) cert;
         } catch (Exception e) {
             LOGGER.error("Error exporting certificate", e);
             return null;
+        }
+    }
+
+    public @NotNull ByteArrayOutputStream exportCertificateToByte(VirtualFile ksVirtualFile,
+                                                                  String selectedAlias,
+                                                                  char[] password) {
+        var cert = exportCertificate(ksVirtualFile, selectedAlias, password);
+        if (cert == null) {
+            return new ByteArrayOutputStream();
+        }
+        return exportCertificate(cert);
+    }
+
+    public @NotNull ByteArrayOutputStream exportCertificate(@NotNull X509Certificate certificate) {
+        try {
+            var out = new ByteArrayOutputStream();
+            out.write("-----BEGIN CERTIFICATE-----\n".getBytes());
+            out.write(Base64.getEncoder().encode(certificate.getEncoded()));
+            out.write("\n-----END CERTIFICATE-----\n".getBytes());
+            return out;
+        } catch (Exception e) {
+            LOGGER.error("Error exporting certificate", e);
+            return new ByteArrayOutputStream();
+        }
+    }
+
+    public void removeCertificate(VirtualFile ksVirtualFile, String certAlias, char[] password) {
+        try (var is = ksVirtualFile.getInputStream();
+             var out = Files.newOutputStream(ksVirtualFile.toNioPath(), StandardOpenOption.WRITE)) {
+            var keystore = openKeyStore(is, password);
+            keystore.deleteEntry(certAlias);
+            keystore.store(out, password);
+            ksVirtualFile.refresh(false, false);
+        } catch (Exception e) {
+            LOGGER.error("Error removing certificate", e);
         }
     }
 }

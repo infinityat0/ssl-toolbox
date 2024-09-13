@@ -104,7 +104,7 @@ public class JKSView extends JPanel {
         this.passwordField = new JBPasswordField();
         panel.setBorder(JBUI.Borders.customLineBottom(JBUI.CurrentTheme.Toolbar.SEPARATOR_COLOR));
         JButton unlockButton = getButton(passwordField, panel);
-        JLabel passwordLabel = new JBLabel("Enter password: ");
+        JBLabel passwordLabel = new JBLabel("Enter password: ");
         passwordField.requestFocusInWindow();
 
         // Set focus traversal keys for the password field to move to the unlock button
@@ -211,6 +211,7 @@ public class JKSView extends JPanel {
     public String getSelectedCertificate() {
         return list.getSelectedValue();
     }
+
     public void removeCertificate(String alias) {
         listModel.remove(listModel.indexOf(alias));
         certs.remove(alias);
