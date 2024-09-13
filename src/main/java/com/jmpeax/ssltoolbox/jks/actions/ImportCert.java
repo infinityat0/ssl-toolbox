@@ -16,6 +16,7 @@ import java.io.IOException;
 
 public class ImportCert extends AnAction {
 
+
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         try {
@@ -38,7 +39,6 @@ public class ImportCert extends AnAction {
                 Messages.showErrorDialog("No certificate selected", "No Certificate Selected");
                 return;
             }
-
             var certAlias = certificateHelper.getCertificate(file)
                     .stream().findFirst().map(certificateHelper::getCommonName).orElse("");
             var selectedAlias = new PrefillInputDialog(certAlias, "Certificate Alias", "Certificate Alias");
@@ -51,7 +51,9 @@ public class ImportCert extends AnAction {
             if (pwd != null && !pwd.isBlank()) {
                 certificateHelper.importCertificate(ksVirtualFile, file,selectedAlias.getInput(), pwd.toCharArray());
                 Messages.showInfoMessage("Certificate imported", "Certificate Imported");
+
             }
+
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

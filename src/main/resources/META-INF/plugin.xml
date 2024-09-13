@@ -54,6 +54,7 @@
                 extensions="pem;cer;der;crt;ca-bundle;p7b;p7c"/>
         <fileEditorProvider implementation="com.jmpeax.ssltoolbox.jks.JKSFileEditorProvider" />
         <fileType name="JKS file" implementationClass="com.jmpeax.ssltoolbox.jks.JKSFileType" extensions="jks;p12"/>
+
     </extensions>
 
     <actions>

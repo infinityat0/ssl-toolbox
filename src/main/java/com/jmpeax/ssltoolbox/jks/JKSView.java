@@ -1,10 +1,8 @@
 package com.jmpeax.ssltoolbox.jks;
 
 import com.intellij.icons.AllIcons;
-import com.intellij.openapi.actionSystem.ActionGroup;
-import com.intellij.openapi.actionSystem.ActionManager;
-import com.intellij.openapi.actionSystem.ActionToolbar;
-import com.intellij.openapi.actionSystem.DataContext;
+import com.intellij.openapi.Disposable;
+import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.application.ApplicationManager;
 
 import com.intellij.openapi.vfs.VirtualFile;
@@ -12,6 +10,8 @@ import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBList;
 import com.intellij.ui.components.JBPasswordField;
 import com.intellij.util.ui.JBUI;
+import com.jmpeax.ssltoolbox.jks.actions.ImportCert;
+import com.jmpeax.ssltoolbox.jks.actions.ListenerDataContext;
 import com.jmpeax.ssltoolbox.pem.PemView;
 import com.jmpeax.ssltoolbox.svc.CertificateHelper;
 import org.jetbrains.annotations.NotNull;
@@ -159,9 +159,11 @@ public class JKSView extends JPanel {
         ActionGroup actionGroup = (ActionGroup) ActionManager.getInstance().getAction("JKS-Actions");
         ActionToolbar actionToolBar = ActionManager.getInstance().createActionToolbar("JKS-Actions-Toolbar", actionGroup, true);
         actionToolBar.setTargetComponent(this);
+        DataContext dataContext = new ListenerDataContext(file, (alias, cert) -> {
 
-        DataContext dataContext = dataId -> this.file;
+        })
         actionToolBar.getComponent().putClientProperty(DataContext.class, dataContext);
+
 
         JPanel panel = new JPanel(new GridLayout(1,1));
         GridBagConstraints gbc = new GridBagConstraints();
@@ -172,39 +174,7 @@ public class JKSView extends JPanel {
         gbc.gridy = 0;
         panel.add(actionToolBar.getComponent(), gbc);
         return panel;
-//
-//        JButton openButton = new JButton(AllIcons.ToolbarDecorator.Import);
-//        openButton.setToolTipText("Open");
-//        openButton.setPreferredSize(new Dimension(AllIcons.ToolbarDecorator.Import.getIconWidth() + 10, AllIcons.ToolbarDecorator.Import.getIconHeight() + 10));
-//        openButton.setBorderPainted(false);
-//        openButton.addActionListener(e -> {
-//            var descriptor = new FileChooserDescriptor(
-//                    true,  // Choose Files
-//                    false,
-//                    false,
-//                    false,
-//                    false,
-//                    false
-//            );
-//            VirtualFile file = FileChooser.chooseFile(descriptor, null, null);
-//            if (file != null) {
-//                var str = Messages.showInputDialog("Enter Alias for " + file.getName(), "Alias for Imported Certificate", null);
-//                LoggerFactory.getLogger(JKSView.class).info("Selected file: alias {} {}", str, file.getPath());
-//                this.listModel.addElement(str);
-//            }
-//        });
-//        gbc.gridx = 0;
-//        gbc.gridy = 0;
-//        panel.add(openButton, gbc);
-//        JButton saveButton = new JButton(AllIcons.ToolbarDecorator.Export);
-//        saveButton.setPreferredSize(new Dimension(AllIcons.ToolbarDecorator.Export.getIconWidth() + 10, AllIcons.ToolbarDecorator.Export.getIconHeight() + 10));
-//        saveButton.setToolTipText("Save");
-//        saveButton.addActionListener(e -> {
-//        });
-//        gbc.gridx = 1;
-//        panel.add(saveButton, gbc);
-//
-//        return panel;
+
     }
 
     private void updateView(Map<String, X509Certificate> certs) {
@@ -222,8 +192,7 @@ public class JKSView extends JPanel {
         });
         listPanel.removeAll();
         listPanel.add(new JScrollPane(list), BorderLayout.CENTER);
-//        revalidate();
-//        repaint();
+
     }
 
     public @Nullable JComponent getUnlockText() {
