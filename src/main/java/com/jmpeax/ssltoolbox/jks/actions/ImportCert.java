@@ -1,29 +1,32 @@
 package com.jmpeax.ssltoolbox.jks.actions;
 
-import com.intellij.icons.AllIcons;
+
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
-import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.openapi.actionSystem.PlatformDataKeys;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileChooser.FileChooser;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.jmpeax.ssltoolbox.jks.JKSView;
 import com.jmpeax.ssltoolbox.svc.CertificateHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ImportCert extends AnAction {
 
-    private static final Logger LOGGER = Logger.getInstance(ImportCert.class);
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         try {
-            var f = e.getData(CommonDataKeys.VIRTUAL_FILE);
-            if (f == null) {
-                LOGGER.warn("JKS not send to the Action");
+            var certificateHelper = ApplicationManager.getApplication().getService(CertificateHelper.class);
+            var ksVirtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE);
+            if (ksVirtualFile == null) {
+                Messages.showErrorDialog("No Keystore file", "No Keystore File");
                 return;
             }
             var descriptor = new FileChooserDescriptor(
@@ -36,16 +39,34 @@ public class ImportCert extends AnAction {
             );
             VirtualFile file = FileChooser.chooseFile(descriptor, null, null);
             if (file == null) {
-                LOGGER.warn("User did not select a certificate");
+                Messages.showErrorDialog("No certificate selected", "No Certificate Selected");
                 return;
             }
-            Messages.showInputDialog("Cert alias","Certificate Alias", Messages.getQuestionIcon());
+            var certAlias = certificateHelper.getCertificate(file)
+                    .stream().findFirst().map(certificateHelper::getCommonName).orElse("");
+            var selectedAlias = new PrefillInputDialog(certAlias, "Certificate Alias", "Certificate Alias");
+            var ok = selectedAlias.showAndGet();
+            if (!ok) {
+                Messages.showErrorDialog("No alias provided", "No Alias Provided");
+                return;
+            }
             var pwd = Messages.showPasswordDialog("Keystore password", "KeyStore Password");
             if (pwd != null && !pwd.isBlank()) {
-                CertificateHelper.importCertificate(f.getInputStream(), file.getInputStream(), pwd.toCharArray());
+                certificateHelper.importCertificate(ksVirtualFile, file,selectedAlias.getInput(), pwd.toCharArray());
+                Messages.showInfoMessage("Certificate imported", "Certificate Imported");
+                Objects.requireNonNull(getViewComponent(e)).addCertificate(selectedAlias.getInput(),
+                        certificateHelper.getCertificate(file).stream().findFirst().orElseThrow());
             }
+
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    private JKSView getViewComponent(@NotNull AnActionEvent e) {
+        // Retrieve your view component from context, e.g., using the data context from the event
+        return e.getData(PlatformDataKeys.CONTEXT_COMPONENT) instanceof JKSView
+                ? (JKSView) e.getData(PlatformDataKeys.CONTEXT_COMPONENT)
+                : null;
     }
 }
