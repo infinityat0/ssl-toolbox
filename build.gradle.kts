@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.jmpeax"
-version = "0.1.2-alpha"
+version = "0.1.3"
 
 repositories {
     mavenCentral()

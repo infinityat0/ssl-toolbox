@@ -14,18 +14,10 @@ import java.util.Objects;
 public class PEMFileEditorProvider implements FileEditorProvider {
     @Override
     public boolean accept(@NotNull Project project, @NotNull VirtualFile file) {
-        switch (Objects.requireNonNull(file.getExtension()).toLowerCase()) {
-            case "pem":
-            case "cer":
-            case "der":
-            case "crt":
-            case "ca-bundle":
-            case "p7b":
-            case "p7c":
-                return true;
-            default:
-                return false;
-        }
+        return switch (Objects.requireNonNull(file.getExtension()).toLowerCase()) {
+            case "pem", "cer", "der", "crt", "ca-bundle", "p7b", "p7c", "cert" -> true;
+            default -> false;
+        };
     }
 
     @Override
