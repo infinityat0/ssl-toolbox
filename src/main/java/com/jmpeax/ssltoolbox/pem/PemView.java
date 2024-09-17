@@ -1,5 +1,6 @@
 package com.jmpeax.ssltoolbox.pem;
 
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.ui.components.JBPanel;
 import com.intellij.ui.components.JBTextField;
 import com.intellij.util.ui.JBUI;
@@ -38,8 +39,10 @@ import java.util.Date;
  * The `PemView` class does not provide any public methods or properties other than the constructor.*/
 public class PemView extends JBPanel<PemView> {
 
+    private final Messages messages;
     public PemView(@NotNull X509Certificate certificate) {
         super(new GridBagLayout());
+        messages = ApplicationManager.getApplication().getService(Messages.class);
         GridBagConstraints gbc = new GridBagConstraints();
 
         gbc.insets = JBUI.insets(5, 15, 5, 5); // Padding between components
@@ -147,7 +150,7 @@ public class PemView extends JBPanel<PemView> {
     }
 
     private JLabel buildLabel(String nlsKey){
-        return new JLabel(Messages.getMessage(nlsKey));
+        return new JLabel(this.messages.getMessage(nlsKey));
     }
 
 }
